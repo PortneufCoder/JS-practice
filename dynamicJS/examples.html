@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        allowDropping = (event) => {
+            event.preventDefault();
+        }
+
+        dragging = (event) => {
+            event.dataTransfer.setData('Text', event.target.id);
+        }
+
+        dropping = (event) => {
+            event.preventDefault(); //prevents the default behavior of the object
+            let info = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(info));
+            //.appendChild creates/duplicates an element and then adds it where you want to set it.
+        }
+
+        let i = 0;
+        let newCars = [];
+        doIt = () => {
+            i++; // This increments "i" since we aren't using a loop here.
+            carBrand = document.getElementById("input1").value; // These variables are set when the user enters an input.
+            carModel = document.getElementById("input2").value;
+            carYear = document.getElementById("input3").value;
+            newCars[i] = new Car(carBrand, carModel, carYear);
+            Car.prototype.cost = null; // the protoype method adds a new object to an array on the fly so 
+            // objectName.prototype.newObjectName
+            cost = document.getElementById("input4").value;
+            newCars[i].cost = cost;
+
+            
+            // Each time i is incremented, we generate a new car object with the values
+            // we are passing in.
+
+            let result = `Entry # ${i} <br> ${newCars[i].brand} <br> ${newCars[i].model} <br> ${newCars[i].year} <br> $ ${newCars[i].cost} <br><br>`;
+
+            document.getElementById('output').innerHTML += result;
+
+        }
+
+       
+            function Car(brand, model, year) {
+                this.brand = brand;
+                this.model = model;
+                this.year = year;
+                // this.cost = cost;
+            
+        }
+    </script>
+</head>
+
+<body>
+    <!--Implementing drag and drop using js in HTML. Drag an image into a div-->
+    <div id="dropFrame" ondrop="dropping(event)" ondragover="allowDropping(event)" style="width: 320px; height: 250px; background-color: blue">
+    </div>
+    <div> 
+    <img id="Totoro" src="totoro.jpg" draggable="true" ondragstart="dragging(event)" />
+    <p>Enter or paste a string</p>
+    Brand:
+    <input type="text" size="10" id="input1">
+    <br>
+    <br> Model:
+    <input type="text" size="10" id="input2">
+    <br>
+    <br> Year:
+    <input type="text" size="10" id="input3">
+    <br>
+    <br> Cost:
+    <input type="text" size="10" id="input4">
+    <br>
+    <br>
+    <button onclick="doIt()">Click Me</button>
+    <span id="output"></span>
+</div>
+</body>
+
+</html>
