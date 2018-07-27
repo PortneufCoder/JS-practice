@@ -1,3 +1,5 @@
+// This file is a collection of exercises to do some js practice.
+
 // LARGEST NUMBER CHALLENGE
 
 const arr1 = [5, 8, 2, 1, 5, 7, 3, 4, 5, 8, 1, 2, 4, 8, 3, 1, 4, 5]; // should log 8,2,4,8,2,4,8,4
@@ -16,7 +18,6 @@ largestNumbers = () => {
   arr4.push(updatedArray);
   return updatedArray;
 };
-
 largestNumbers();
 
 addToNewArray = () => {
@@ -57,7 +58,7 @@ for (let i = 0; i < triangleArray.length; i++) {
 }
 
 // PYRAMID CHALLENGE
-createPyramid = rows => {
+createPyramid = (rows) => {
   for (let i = 0; i < rows; i++) {
     let output = "";
     for (let j = 0; j < rows - i; j++) {
@@ -109,9 +110,19 @@ reverseWord("Vamos no cruz");
 let calamari = "typhoon"
 let newCalamari = calamari.substr(1)
 console.log(newCalamari)
+// returns yphoon
 
 //find the first/last index of a string
 let testSentence = "Testing the baddest maddest origami"
 let lastLetter = testSentence.charAt(testSentence.length-1);
 let firstLetter = testSentence.charAt(testSentence.length[0]);
 console.log(lastLetter)
+
+// filter out an index from an array.
+let fancyWords = ['Sparta', 'Eurasia', 'Atthica', 'Byzanthia', 'Eucalyptus'];
+
+let filteredList = fancyWords.filter(fancyWord => fancyWord.length < 7)
+// When using filter, the argument (fancyWord) represents each item (in the array) we will perform a
+// callback function on.
+console.log(filteredList)
+
