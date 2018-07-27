@@ -25,13 +25,28 @@ addToNewArray = () => {
   arr5 = [47];
   let pureArray = [];
   pureArray.push(newValue);
-  const arr6 = arr5.concat(pureArray);
+  let arr6 = arr5.concat(pureArray);
   console.log(arr6);
-  // return arr6;
+  return arr6;
 };
 addToNewArray();
+
 // The above code, uses .concat to merge two arrays and then we go on to find the largest number
 // then push the result in a new array.
+
+// Now add the two numbers into an array containing a string representation of them.
+concatStrings = () => {
+    let arrayToMerge = addToNewArray();
+    console.log(arrayToMerge)
+    let equivalentRender = ["fourty-seven", "seventy-four"];
+    let numberLetter = equivalentRender.concat(arrayToMerge);
+    console.log(numberLetter);
+    return numberLetter;
+    // return must be used when you want to later use the result of the function
+  
+}
+concatStrings();
+
 
 // NUMBER TRIANGLE CHALLENGE
 let triangleArray = [1, 22, 333, 4444];
@@ -66,15 +81,37 @@ personData = [
   "Valeria"
 ];
 
-getPerson = () => {
+
   for (h = 0; h < personData.length; h++) {
     if (personData[h].charAt(0) === "V") {
       console.log(personData[h]);
-    } 
-    else if (personData[h].charAt(0) !== "V") {
-        console.log('Name not found')
+    } else if (personData[h].charAt(0) !== "V") {
+      console.log("Name not found");
     }
   }
-};
-getPerson(personData);
+;
+// The below function is practicing how to reverse a string in js
+reverseWord = (firstword) => {
+    console.log(firstword)
+    let splitWord = firstword.split("");
+    console.log(splitWord)
+    let reverseArray = splitWord.reverse();
+    console.log(reverseArray)
+    let joinedWord = reverseArray.join("");
+    console.log(joinedWord)
+    // Alternatively, all the above can be chained together like below:
+    // return firstword.split("").reverse().join("");
+}
 
+reverseWord("Vamos no cruz");
+
+// Finding out how substr method works.
+let calamari = "typhoon"
+let newCalamari = calamari.substr(1)
+console.log(newCalamari)
+
+//find the first/last index of a string
+let testSentence = "Testing the baddest maddest origami"
+let lastLetter = testSentence.charAt(testSentence.length-1);
+let firstLetter = testSentence.charAt(testSentence.length[0]);
+console.log(lastLetter)
